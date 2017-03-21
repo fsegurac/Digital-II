@@ -114,13 +114,26 @@ void spi_init();
 void spi_putchar(char c);
 char spi_getchar();
 
+/***************************************************************************
+ * i2c0
+ */
 
+typedef struct {
+	volatile uint8_t PRERlo;
+	volatile uint8_t PRERhi;
+	volatile uint8_t ctr;
+	volatile uint8_t txrx;
+	volatile uint8_t crsr;
+} i2c_t;
+
+ 
 /***************************************************************************
  * Pointer to actual components
  */
 extern timer_t  *timer0;
 extern uart_t   *uart0; 
-extern gpio_t   *gpio0; 
+extern gpio_t   *gpio0;
+extern i2c_t	*i2c0; 
 extern uint32_t *sram0; 
 
 #endif // SPIKEHW_H

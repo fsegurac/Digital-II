@@ -5,7 +5,7 @@ timer_t *timer0 = (timer_t *)  0x30000000;
 gpio_t  *gpio0  = (gpio_t *)   0x40000000;
 //uart_t  *uart1  = (uart_t *)   0x20000000;
 spi_t   *spi0   = (spi_t *)    0x50000000;
-//i2c_t   *i2c0   = (i2c_t *)    0x70000000;
+i2c_t   *i2c0   = (i2c_t *)    0x60000000;
 
 isr_ptr_t isr_table[32];
 

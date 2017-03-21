@@ -135,9 +135,9 @@ module i2c_master_wb_top(
 	wire  [15:0] prer; // clock prescale register 
 	wire  [ 7:0] ctr;  // control register        	
 	wire  [ 7:0] txr;  // transmit register       	
-	wire [ 7:0] rxr;   // receive register         	
+	wire  [ 7:0] rxr;  // receive register         	
 	wire  [ 7:0] cr;   // command register        	
-	wire [ 7:0] sr;    // status register          	
+	wire  [ 7:0] sr;   // status register          	
 	
 	// done signal: command completed, clear command register
 	wire done;
