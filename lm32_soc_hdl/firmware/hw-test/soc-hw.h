@@ -126,7 +126,10 @@ typedef struct {
 	volatile uint8_t crsr;
 } i2c_t;
 
- 
+void i2c_char();
+void i2c_string(char c);
+void i2c_getChar();
+
 /***************************************************************************
  * Pointer to actual components
  */

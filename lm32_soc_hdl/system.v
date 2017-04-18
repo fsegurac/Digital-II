@@ -26,7 +26,7 @@ module system
 	output            spi_mosi,
 	output            spi_clk
 	// i2c
-        inout             i2c_sda, 
+   inout             i2c_sda, 
 	inout             i2c_scl
         //gpio
 	//inout	       	  gpio0_io,

@@ -1,11 +1,11 @@
 
-Memory Configuration
+Configuración de la Memoria
 
-Name             Origin             Length             Attributes
+Nombre           Origen             Longitud           Atributos
 bram             0x0000000000860000 0x0000000000001000
 *default*        0x0000000000000000 0xffffffffffffffff
 
-Linker script and memory map
+Guión del enlazador y mapa de memoria
 
                 0x0000000000000000                __DYNAMIC = 0x0
                 0x0000000000860000                _BRAM_START = 0x860000
@@ -119,13 +119,13 @@ OUTPUT(image elf32-lm32)
  .debug_aranges
                 0x0000000000000020       0x20 soc-hw.o
 
-.debug_str      0x0000000000000000      0x164
- .debug_str     0x0000000000000000       0xa1 main.o
-                                         0xb9 (size before relaxing)
- .debug_str     0x00000000000000a1       0xc3 soc-hw.o
-                                        0x140 (size before relaxing)
+.debug_str      0x0000000000000000      0x16b
+ .debug_str     0x0000000000000000       0xa8 main.o
+                                         0xc0 (tamaño antes de la relajación)
+ .debug_str     0x00000000000000a8       0xc3 soc-hw.o
+                                        0x147 (tamaño antes de la relajación)
 
 .comment        0x0000000000000000       0x11
  .comment       0x0000000000000000       0x11 main.o
-                                         0x12 (size before relaxing)
+                                         0x12 (tamaño antes de la relajación)
  .comment       0x0000000000000000       0x12 soc-hw.o
