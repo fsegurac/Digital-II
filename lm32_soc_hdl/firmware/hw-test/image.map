@@ -65,43 +65,44 @@ Guión del enlazador y mapa de memoria
  *(.rodata1)
                 0x0000000000000974                _erodata = .
 
-.data           0x0000000000000974       0x18
+.data           0x0000000000000974       0x1c
                 0x0000000000000974                . = ALIGN (0x4)
                 0x0000000000000974                _fdata = .
  *(.data .data.* .gnu.linkonce.d.*)
  .data          0x0000000000000974        0x0 crt0ram.o
  .data          0x0000000000000974        0x8 main.o
                 0x0000000000000974                glob
- .data          0x000000000000097c       0x10 soc-hw.o
+ .data          0x000000000000097c       0x14 soc-hw.o
                 0x000000000000097c                uart0
                 0x0000000000000980                timer0
                 0x0000000000000984                gpio0
                 0x0000000000000988                spi0
+                0x000000000000098c                i2c0
  *(.data1)
                 0x0000000000000990                _gp = ALIGN (0x10)
  *(.sdata .sdata.* .gnu.linkonce.s.*)
-                0x000000000000098c                _edata = .
+                0x0000000000000990                _edata = .
 
-.bss            0x000000000000098c       0x8c
-                0x000000000000098c                . = ALIGN (0x4)
-                0x000000000000098c                _fbss = .
+.bss            0x0000000000000990       0x8c
+                0x0000000000000990                . = ALIGN (0x4)
+                0x0000000000000990                _fbss = .
  *(.dynsbss)
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
  *(.scommon)
  *(.dynbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x000000000000098c        0x0 crt0ram.o
- .bss           0x000000000000098c        0x0 main.o
- .bss           0x000000000000098c        0x0 soc-hw.o
+ .bss           0x0000000000000990        0x0 crt0ram.o
+ .bss           0x0000000000000990        0x0 main.o
+ .bss           0x0000000000000990        0x0 soc-hw.o
  *(COMMON)
- COMMON         0x000000000000098c        0x8 main.o
-                0x000000000000098c                p
-                0x0000000000000990                p2
- COMMON         0x0000000000000994       0x84 soc-hw.o
-                0x0000000000000994                isr_table
-                0x0000000000000a14                tic_msec
-                0x0000000000000a18                _ebss = .
-                0x0000000000000a18                _end = .
+ COMMON         0x0000000000000990        0x8 main.o
+                0x0000000000000990                p
+                0x0000000000000994                p2
+ COMMON         0x0000000000000998       0x84 soc-hw.o
+                0x0000000000000998                isr_table
+                0x0000000000000a18                tic_msec
+                0x0000000000000a1c                _ebss = .
+                0x0000000000000a1c                _end = .
                 0x0000000000000ffc                PROVIDE (_fstack, ((ORIGIN (ram) + 0x1000) - 0x4))
 LOAD crt0ram.o
 LOAD main.o
@@ -112,9 +113,9 @@ OUTPUT(image elf32-lm32)
  .debug_abbrev  0x0000000000000000      0x1b1 main.o
  .debug_abbrev  0x00000000000001b1      0x19d soc-hw.o
 
-.debug_info     0x0000000000000000      0x8a9
+.debug_info     0x0000000000000000      0x92b
  .debug_info    0x0000000000000000      0x39b main.o
- .debug_info    0x000000000000039b      0x50e soc-hw.o
+ .debug_info    0x000000000000039b      0x590 soc-hw.o
 
 .debug_line     0x0000000000000000      0x79b
  .debug_line    0x0000000000000000      0x468 main.o
@@ -129,18 +130,18 @@ OUTPUT(image elf32-lm32)
  .debug_loc     0x0000000000000378       0xfc soc-hw.o
 
 .debug_pubnames
-                0x0000000000000000      0x16e
+                0x0000000000000000      0x177
  .debug_pubnames
                 0x0000000000000000       0x51 main.o
  .debug_pubnames
-                0x0000000000000051      0x11d soc-hw.o
+                0x0000000000000051      0x126 soc-hw.o
 
 .debug_pubtypes
-                0x0000000000000000       0x8f
+                0x0000000000000000       0xa5
  .debug_pubtypes
                 0x0000000000000000       0x36 main.o
  .debug_pubtypes
-                0x0000000000000036       0x59 soc-hw.o
+                0x0000000000000036       0x6f soc-hw.o
 
 .debug_aranges  0x0000000000000000       0x40
  .debug_aranges
@@ -152,11 +153,11 @@ OUTPUT(image elf32-lm32)
  .debug_ranges  0x0000000000000000       0x20 main.o
  .debug_ranges  0x0000000000000020       0x18 soc-hw.o
 
-.debug_str      0x0000000000000000      0x20c
- .debug_str     0x0000000000000000       0xe6 main.o
-                                         0xfc (tamaño antes de la relajación)
- .debug_str     0x00000000000000e6      0x126 soc-hw.o
-                                        0x1dc (tamaño antes de la relajación)
+.debug_str      0x0000000000000000      0x22d
+ .debug_str     0x0000000000000000       0xe4 main.o
+                                         0xfa (tamaño antes de la relajación)
+ .debug_str     0x00000000000000e4      0x149 soc-hw.o
+                                        0x205 (tamaño antes de la relajación)
 
 .comment        0x0000000000000000       0x11
  .comment       0x0000000000000000       0x11 main.o

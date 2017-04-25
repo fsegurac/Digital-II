@@ -24,9 +24,9 @@ module system
 	// SPI
 	input             spi_miso, 
 	output            spi_mosi,
-	output            spi_clk
+	output            spi_clk,
 	// i2c
-   inout             i2c_sda, 
+        inout             i2c_sda, 
 	inout             i2c_scl
         //gpio
 	//inout	       	  gpio0_io,
@@ -159,7 +159,7 @@ wire [1:0]   lm32i_bte,
 //---------------------------------------------------------------------------
 wire [31:0]  intr_n;
 wire         uart0_intr = 0;
-wire   [1:0] timer0_intr;
+wire [1:0]   timer0_intr;
 wire         gpio0_intr;
 
 assign intr_n = { 28'hFFFFFFF, ~timer0_intr[1], ~gpio0_intr, ~timer0_intr[0], ~uart0_intr };
@@ -440,10 +440,10 @@ assign led       = ~uart_txd;
 
 assign spi_mosi  = spi0_mosi;
 assign spi0_miso = spi_miso;
-assign spi_clk = spi0_clk;
+assign spi_clk   = spi0_clk;
 
-assign i2c_sda = i2c0_sda;
-assign i2c_scl = i2c0_scl;
+assign i2c_sda 	= i2c0_sda;
+assign i2c_scl 	= i2c0_scl;
 
 //assign gpio_io = gpio0_io;
 //assign gpio_irq = gpio0_irq;

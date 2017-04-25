@@ -7,31 +7,31 @@ Ind Nombre        Tamaño    VMA       LMA       Desp fich Alin
                   CONTENTS, ALLOC, LOAD, CODE
   1 .rodata       00000114  00000860  00000860  000008b4  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  2 .data         00000018  00000974  00000974  000009c8  2**2
+  2 .data         0000001c  00000974  00000974  000009c8  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  3 .bss          0000008c  0000098c  0000098c  000009e0  2**2
+  3 .bss          0000008c  00000990  00000990  000009e4  2**2
                   ALLOC
-  4 .debug_abbrev 0000034e  00000000  00000000  000009e0  2**0
+  4 .debug_abbrev 0000034e  00000000  00000000  000009e4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   000008a9  00000000  00000000  00000d2e  2**0
+  5 .debug_info   0000092b  00000000  00000000  00000d32  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_line   0000079b  00000000  00000000  000015d7  2**0
+  6 .debug_line   0000079b  00000000  00000000  0000165d  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_frame  00000140  00000000  00000000  00001d74  2**2
+  7 .debug_frame  00000140  00000000  00000000  00001df8  2**2
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_loc    00000474  00000000  00000000  00001eb4  2**0
+  8 .debug_loc    00000474  00000000  00000000  00001f38  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_pubnames 0000016e  00000000  00000000  00002328  2**0
+  9 .debug_pubnames 00000177  00000000  00000000  000023ac  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_pubtypes 0000008f  00000000  00000000  00002496  2**0
+ 10 .debug_pubtypes 000000a5  00000000  00000000  00002523  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_aranges 00000040  00000000  00000000  00002525  2**0
+ 11 .debug_aranges 00000040  00000000  00000000  000025c8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000038  00000000  00000000  00002565  2**0
+ 12 .debug_ranges 00000038  00000000  00000000  00002608  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_str    0000020c  00000000  00000000  0000259d  2**0
+ 13 .debug_str    0000022d  00000000  00000000  00002640  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .comment      00000011  00000000  00000000  000027a9  2**0
+ 14 .comment      00000011  00000000  00000000  0000286d  2**0
                   CONTENTS, READONLY
 
 Desensamblado de la sección .text:
@@ -122,9 +122,9 @@ Desensamblado de la sección .text:
  108:	78 1a 00 00 	mvhi gp,0x0
  10c:	3b 5a 09 90 	ori gp,gp,0x990
  110:	78 01 00 00 	mvhi r1,0x0
- 114:	38 21 09 8c 	ori r1,r1,0x98c
+ 114:	38 21 09 90 	ori r1,r1,0x990
  118:	78 03 00 00 	mvhi r3,0x0
- 11c:	38 63 0a 18 	ori r3,r3,0xa18
+ 11c:	38 63 0a 1c 	ori r3,r3,0xa1c
 
 00000120 <.clearBSS>:
  120:	44 23 00 04 	be r1,r3,130 <.callMain>
@@ -661,7 +661,7 @@ inline void writeint(uint32_t val)
  498:	78 01 00 00 	mvhi r1,0x0
  49c:	38 21 09 24 	ori r1,r1,0x924
 	writeint( tic_msec );
- 4a0:	39 6b 0a 14 	ori r11,r11,0xa14
+ 4a0:	39 6b 0a 18 	ori r11,r11,0xa18
 		uart_putstr("tic...");    
 		msleep(1000);
 	}
@@ -968,7 +968,7 @@ void tic_isr()
 {
 	tic_msec++;
  5d0:	78 01 00 00 	mvhi r1,0x0
- 5d4:	38 21 0a 14 	ori r1,r1,0xa14
+ 5d4:	38 21 0a 18 	ori r1,r1,0xa18
  5d8:	28 23 00 00 	lw r3,(r1+0)
 	timer0->tcr0     = TIMER_EN | TIMER_AR | TIMER_IRQEN;
  5dc:	78 02 00 00 	mvhi r2,0x0
@@ -1085,7 +1085,7 @@ void irq_handler(uint32_t pending)
  67c:	5b 8d 00 08 	sw (sp+8),r13
  680:	5b 9d 00 04 	sw (sp+4),ra
  684:	78 0b 00 00 	mvhi r11,0x0
- 688:	39 6b 09 94 	ori r11,r11,0x994
+ 688:	39 6b 09 98 	ori r11,r11,0x998
  68c:	b8 20 60 00 	mv r12,r1
  */
 void isr_null()
@@ -1146,7 +1146,7 @@ void isr_init()
 {
  6d4:	78 01 00 00 	mvhi r1,0x0
  6d8:	78 02 00 00 	mvhi r2,0x0
- 6dc:	38 21 09 94 	ori r1,r1,0x994
+ 6dc:	38 21 09 98 	ori r1,r1,0x998
  6e0:	38 42 05 cc 	ori r2,r2,0x5cc
 		if (pending & 0x01) (*isr_table[i])();
 		pending >>= 1;
@@ -1179,7 +1179,7 @@ void isr_register(int irq, isr_ptr_t isr)
 	isr_table[irq] = isr;
  6f8:	78 03 00 00 	mvhi r3,0x0
  6fc:	3c 21 00 02 	sli r1,r1,2
- 700:	38 63 09 94 	ori r3,r3,0x994
+ 700:	38 63 09 98 	ori r3,r3,0x998
  704:	b4 61 18 00 	add r3,r3,r1
  708:	58 62 00 00 	sw (r3+0),r2
 }
@@ -1192,7 +1192,7 @@ void isr_unregister(int irq)
 	isr_table[irq] = &isr_null;
  710:	78 03 00 00 	mvhi r3,0x0
  714:	3c 21 00 02 	sli r1,r1,2
- 718:	38 63 09 94 	ori r3,r3,0x994
+ 718:	38 63 09 98 	ori r3,r3,0x998
  71c:	78 02 00 00 	mvhi r2,0x0
  720:	b4 61 18 00 	add r3,r3,r1
  724:	38 42 05 cc 	ori r2,r2,0x5cc
@@ -1287,7 +1287,7 @@ void tic_init()
 void tic_init()
 {
 	tic_msec = 0;
- 7b4:	38 21 0a 14 	ori r1,r1,0xa14
+ 7b4:	38 21 0a 18 	ori r1,r1,0xa18
 
 	// Setup timer0.0
 	timer0->compare0 = (FCPU/10000);
@@ -1322,7 +1322,7 @@ void isr_register(int irq, isr_ptr_t isr)
 void isr_register(int irq, isr_ptr_t isr)
 {
 	isr_table[irq] = isr;
- 7d0:	38 21 09 94 	ori r1,r1,0x994
+ 7d0:	38 21 09 98 	ori r1,r1,0x998
  7d4:	38 42 05 d0 	ori r2,r2,0x5d0
  7d8:	58 22 00 04 	sw (r1+4),r2
 	timer0->compare0 = (FCPU/10000);
