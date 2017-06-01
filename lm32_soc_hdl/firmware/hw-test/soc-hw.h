@@ -23,6 +23,9 @@ typedef signed   int   int32_t;    // 32 Bit
 typedef unsigned char  uint8_t;    // 8 Bit
 typedef signed   char   int8_t;    // 8 Bit
 
+typedef unsigned int  uint16_t;    // 16 Bit
+typedef signed   int   int16_t;    // 16 Bit
+
 /****************************************************************************
  * Interrupt handling
  */
@@ -60,7 +63,7 @@ typedef struct {
 	volatile uint32_t compare1;
 	volatile uint32_t counter1;
 } timer_t;
-
+void sleep(int msec);
 void msleep(uint32_t msec);
 void nsleep(uint32_t nsec);
 
@@ -98,6 +101,24 @@ void uart_putchar(char c);
 void uart_putstr(char *str);
 char uart_getchar();
 
+/**********************************************************************
+##### UART1 #####
+**********************************************************************/
+void uart_gen_putchar(char c);
+void uart_putchar1(char c);
+void uart_putstr1(char *str);
+char uart_getchar1();
+
+/***************************************************************************
+ * UART1 WIFI ESP8266
+ */
+
+void init_wifi();
+void wifi_putchar(char a);
+void wifi_putstr(char *a);
+char wifi_getchar();
+int  ok();
+
 /***************************************************************************
  * SPI0
  */
@@ -134,7 +155,8 @@ void i2c_getChar();
  * Pointer to actual components
  */
 extern timer_t  *timer0;
-extern uart_t   *uart0; 
+extern uart_t   *uart0;
+extern uart_t   *uart1; 
 extern gpio_t   *gpio0;
 extern i2c_t	*i2c0; 
 extern uint32_t *sram0; 

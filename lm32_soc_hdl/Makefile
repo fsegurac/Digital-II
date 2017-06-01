@@ -3,8 +3,9 @@ XILINXCADROOT   = /opt/cad/Xilinx/10.1/ISE
 VINCDIR=                                  \
 	-I../rtl/wb_conbus                 \
 	-I../rtl/lm32                      \
-	-I../rtl/wb_ddr	\
-	-I../rtl/wb_i2c
+	-I../rtl/wb_ddr		\
+	-I../rtl/	\
+	-I../rtl/wb_i2c/	
 
 SYN_SRC=
 
@@ -42,9 +43,9 @@ SRC=                                      \
 	../rtl/wb_i2c/i2c_master_byte_ctrl.v  \
 	../rtl/wb_i2c/i2c_master_bit_ctrl.v  \
 	../rtl/wb_i2c/timescale.v \
-	../rtl/wb_conbus/conbus.v          \
+	../rtl/wb_conbus/conbus.v		\
 	../rtl/wb_conbus/conbus_arb.v      
-
+		
 #############################################################################
 # Synthesis constants
 SYNCLEAN=system.bgn system.drc system.mrp system.ngd system.pcf 
@@ -135,8 +136,8 @@ usage: system-routed.xdl
 	xdlanalyze.pl system-routed.xdl $(USAGE_DEPTH)
 
 
-upload: system.bit
-	sudo fpgaprog -v -f system.bit 
+upload: clean system.bit
+	djtgcfg prog -d Nexys2 --index 0 --file system.bit
 
 
 ####################################################################
@@ -147,6 +148,10 @@ upload: system.bit
 
 clean:
 	rm -Rf build $(SYNCLEAN) $(SIMCLEAN) 
+
+prog:
+	djtgcfg enum && djtgcfg init -d Nexys2 && djtgcfg prog -d Nexys2 -i 0 -f system.bit
+
 
 .PHONY: clean view
 

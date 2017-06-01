@@ -1,0 +1,19 @@
+//! **************************************************************************
+// Written by: Map P.49d on Wed May 31 23:14:44 2017
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "clk" LOCATE = SITE "U9" LEVEL 1;
+COMP "led" LOCATE = SITE "J14" LEVEL 1;
+COMP "rst" LOCATE = SITE "C12" LEVEL 1;
+COMP "led1" LOCATE = SITE "J15" LEVEL 1;
+COMP "spi_clk" LOCATE = SITE "P15" LEVEL 1;
+COMP "uart_rxd1" LOCATE = SITE "R16" LEVEL 1;
+COMP "uart_txd1" LOCATE = SITE "R18" LEVEL 1;
+COMP "uart_rxd" LOCATE = SITE "F4" LEVEL 1;
+COMP "uart_txd" LOCATE = SITE "R4" LEVEL 1;
+COMP "spi_miso" LOCATE = SITE "G14" LEVEL 1;
+COMP "spi_mosi" LOCATE = SITE "H14" LEVEL 1;
+NET "clk_BUFGP/IBUFG" BEL "clk_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+SCHEMATIC END;
+

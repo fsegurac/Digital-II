@@ -1,7 +1,7 @@
 /**
+ *
  * 
  */
-
 #include "soc-hw.h"
 
 inline void writeint(uint32_t val)
@@ -37,15 +37,10 @@ extern uint32_t tic_msec;
 
 int main()
 {
-	uint32_t aa=1;
-
- // for(;;)
- // {
-//	  uart_putchar(2*(aa));
- //     uart_putchar((2+(aa++)));
-
-  //}
-	   prueba();
+    init_wifi();
+   // prueba();
+  
+/******************************************************
    uart_putchar('b');
    uart_putchar(2+3);
    uart_putchar(2*3);
@@ -137,7 +132,7 @@ int main()
 			msleep(100);
 		}
 	}
-
+******************************************************/
 
 /*
 	uart_putstr( "Memory Dump: " );
@@ -156,9 +151,10 @@ int main()
 	}
 */
 
+/******************************************************
 	uart_putstr("Entering Echo Test...\n");
 	while (1) {
 	   uart_putchar(uart_getchar());
 	}
+******************************************************/
 }
-

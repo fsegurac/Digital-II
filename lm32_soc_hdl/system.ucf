@@ -1,24 +1,27 @@
-
 # ==== Cloclk inputs (CLK) ====
 
-NET "clk"   LOC = "E3"	| IOSTANDARD = "LVCMOS33";
-NET "clk" TNM_NET = sys_clk;
-TIMESPEC TS_sys_clk = PERIOD sys_clk_pin 100 MHz HIGH 50%; 
+NET "clk"   LOC = "B8";	#| IOSTANDARD = "LVCMOS33"
+##NET "clk" TNM_NET = sys_clk;
+##TIMESPEC TS_sys_clk = PERIOD sys_clk_pin 100 MHz HIGH 50%; 
 
-NET "rst"	LOC = "C12"	| IOSTANDARD = "LVCMOS33";
-NET "led"	LOC = "T8"	| IOSTANDARD = "LVCMOS33";
-
+NET "rst"	LOC = "C12";	#| IOSTANDARD = "LVCMOS33";
 
 # ==== UART ====
-NET "uart_txd"	LOC = "D4"	| IOSTANDARD = "LVCMOS33";		
-NET "uart_rxd"	LOC = "C4"	| IOSTANDARD = "LVCMOS33";		
+NET "uart_txd"	LOC = "R4"; 	#| IOSTANDARD = "LVCMOS33";		
+NET "uart_rxd"	LOC = "F4";	    #| IOSTANDARD = "LVCMOS33";
+NET "led"	    LOC = "J14";	#| IOSTANDARD = "LVCMOS33";
+
+# ==== UART1 ====
+NET "uart_txd1"	LOC = "R18";	#| IOSTANDARD = "LVCMOS33";		
+NET "uart_rxd1"	LOC = "R16";	#| IOSTANDARD = "LVCMOS33";		
+NET "led1"      LOC = "J15";    #| IOSTANDARD = "LVCMOS33";
 
 # ==== SPI ====
-NET "spi_miso"	LOC = "P2"	| IOSTANDARD = "LVCMOS33";		
-NET "spi_mosi"	LOC = "R2"	| IOSTANDARD = "LVCMOS33";		
-NET "spi_clk"	LOC = "U1"	| IOSTANDARD = "LVCMOS33";		
+NET "spi_miso"	LOC = "G14";    #| IOSTANDARD = "LVCMOS33";		
+NET "spi_mosi"	LOC = "H14";    #| IOSTANDARD = "LVCMOS33";		
+NET "spi_clk"	LOC = "P15";    #| IOSTANDARD = "LVCMOS33";		
 
 # ==== I2C ====
-#NET "i2c_sda"	LOC = "V9"	| IOSTANDARD = "LVCMOS33";		
-#NET "i2c_clk"	LOC = "R8"	| IOSTANDARD = "LVCMOS33";		
+NET "i2c_sda"	LOC = "L18";	#| IOSTANDARD = "LVCMOS33";		
+NET "i2c_scl"	LOC = "F18";	#| IOSTANDARD = "LVCMOS33";		
 
