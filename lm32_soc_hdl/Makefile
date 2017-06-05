@@ -137,7 +137,7 @@ usage: system-routed.xdl
 
 
 upload: clean system.bit
-	djtgcfg prog -d Nexys2 --index 0 --file system.bit
+	djtgcfg prog -d Nexys4 --index 0 --file system.bit
 
 
 ####################################################################
@@ -150,7 +150,7 @@ clean:
 	rm -Rf build $(SYNCLEAN) $(SIMCLEAN) 
 
 prog:
-	djtgcfg enum && djtgcfg init -d Nexys2 && djtgcfg prog -d Nexys2 -i 0 -f system.bit
+	djtgcfg enum && djtgcfg init -d Nexys4 && djtgcfg prog -d Nexys4 -i 0 -f system.bit
 
 
 .PHONY: clean view

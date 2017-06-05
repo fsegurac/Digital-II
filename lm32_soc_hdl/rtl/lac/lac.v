@@ -4,6 +4,7 @@
 
 module lac #(
 	parameter       uart_freq_hz   =   100000000,
+	//parameter       uart_freq_hz = 50000000,
 	parameter       uart_baud      =   115200,
 	parameter       adr_width      =   11,
 	parameter       width          =   8

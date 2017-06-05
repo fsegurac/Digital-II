@@ -8,7 +8,8 @@ module system
 #(
 
 	parameter   bootram_file     = "../firmware/hw-test/image.ram",
-	parameter   clk_freq         = 100000000,
+    parameter   clk_freq         = 100000000,//clk Nexys4
+	//parameter   clk_freq         = 50000000,//clk Nexys2
 	parameter   uart_baud_rate   = 115200
 ) (
 	input             clk,
@@ -24,7 +25,7 @@ module system
 	input   		  uart_rxd1,
 	output  		  uart_txd1,
     output            led1,
-    //output            uart_rxd1_1,
+    output            uart_rxd1_1,//Nexys4 Tx
 
   	// SPI
 	input             spi_miso, 
@@ -401,7 +402,7 @@ wb_uart #(
 assign uart_txd1  = uart1_txd;
 assign uart1_rxd  = uart_rxd1;
 assign led1       = uart_txd1;
-//assign uart_rxd1_1 = uart_rxd1;
+assign uart_rxd1_1 = uart_rxd1;
 
 
 //---------------------------------------------------------------------------

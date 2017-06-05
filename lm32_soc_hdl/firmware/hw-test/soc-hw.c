@@ -117,13 +117,13 @@ void tic_init()
 void init_wifi(){ //configurar el modulo como servidor con puerto 80
 
     int c = 0;
-   /* while(c==0){
+    while(c==0){
 		uart_putstr1(" AT\r\n");
 		c = ok();
 	}
 
 	msleep(20);
-	c = 0;*/
+	c = 0;
 	while(c==0){
 		uart_putstr1(" AT+RST\r\n");
 		c = ok();
@@ -146,7 +146,7 @@ void init_wifi(){ //configurar el modulo como servidor con puerto 80
     msleep(20);
     c = 0;
     while(c==0){
-		uart_putstr1("AT+CSWAP_CUR=\"guardDog\",\"mydog\",5,3\r\n");
+		uart_putstr1("AT+CWSAP_CUR=\"guardDogServer\",\"mydog000\",5,3\r\n");
 		c = ok();
 	}
 
@@ -281,8 +281,8 @@ void uart_putstr1(char *str)
 void uart_gen_putchar(char c)
 {
     uart_putchar1(c);
-}
 
+}
 /***************************************************************************
  * i2c Functions
  */

@@ -1,30 +1,93 @@
+#############################
+########## NEXYS 2 ##########
+#############################
 
 # ==== Cloclk inputs (CLK) ====
 
-NET "clk"   LOC = "E3"	| IOSTANDARD = "LVCMOS33";
-NET "clk" TNM_NET = sys_clk;
-TIMESPEC TS_sys_clk = PERIOD sys_clk_pin 100 MHz HIGH 50%; 
-
-NET "rst"	LOC = "C12"	| IOSTANDARD = "LVCMOS33";
+NET "clk"   LOC = "B8";	#| IOSTANDARD = "LVCMOS33"
+NET "rst"	LOC = "C12";	#| IOSTANDARD = "LVCMOS33";
 
 # ==== UART ====
-NET "led"	LOC = "P2"	| IOSTANDARD = "LVCMOS33";
-NET "uart_txd"	LOC = "B13"	| IOSTANDARD = "LVCMOS33";	
-NET "uart_rxd"	LOC = "F14"	| IOSTANDARD = "LVCMOS33";	
+NET "uart_txd"	LOC = "R4"; 	#| IOSTANDARD = "LVCMOS33";		
+NET "uart_rxd"	LOC = "F4";	    #| IOSTANDARD = "LVCMOS33";
+NET "led"	    LOC = "J14";	#| IOSTANDARD = "LVCMOS33";
 
 # ==== UART1 ====
-NET "led"	LOC = "R2"	| IOSTANDARD = "LVCMOS33";
-#pines para la conexión del modulo esp8266
-NET "uart_txd1"	LOC = "J3"	| IOSTANDARD = "LVCMOS33";	
-NET "uart_rxd1"	LOC = "J4"	| IOSTANDARD = "LVCMOS33";	
-#pin para la salida del calble usb
-NET "uart_txd1"	LOC = "D4"	| IOSTANDARD = "LVCMOS33";	
+NET "uart_txd1"	LOC = "R18";	#| IOSTANDARD = "LVCMOS33";		
+NET "uart_rxd1"	LOC = "R16";	#| IOSTANDARD = "LVCMOS33";		
+NET "led1"      LOC = "J15";    #| IOSTANDARD = "LVCMOS33";
 
 # ==== SPI ====
-NET "spi_miso"	LOC = "D17"	| IOSTANDARD = "LVCMOS33";	
-NET "spi_mosi"	LOC = "E17"	| IOSTANDARD = "LVCMOS33";	
-NET "spi_clk"	LOC = "G13"	| IOSTANDARD = "LVCMOS33";
+NET "spi_miso"	LOC = "G14";    #| IOSTANDARD = "LVCMOS33";		
+NET "spi_mosi"	LOC = "H14";    #| IOSTANDARD = "LVCMOS33";		
+NET "spi_clk"	LOC = "P15";    #| IOSTANDARD = "LVCMOS33";		
 
 # ==== I2C ====
-NET "i2c_sda"	LOC = "K2"	| IOSTANDARD = "LVCMOS33";
-NET "i2c_scl"	LOC = "E7"	| IOSTANDARD = "LVCMOS33";
+NET "i2c_sda"	LOC = "L18";	#| IOSTANDARD = "LVCMOS33";		
+NET "i2c_scl"	LOC = "F18";	#| IOSTANDARD = "LVCMOS33";		
+
+#############################
+########## NEXYS 3 ##########
+#############################
+
+#Clock signal
+#Net "clk" LOC=V10 | IOSTANDARD=LVCMOS33;
+#Net "clk" TNM_NET = sys_clk_pin;
+#TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 100000 kHz;
+
+# ==== UART ====
+#NET "led"	LOC = "U16"	| IOSTANDARD = "LVCMOS33";
+#NET "uart_txd"	LOC = "T12"	| IOSTANDARD = "LVCMOS33";	
+#NET "uart_rxd"	LOC = "V12"	| IOSTANDARD = "LVCMOS33";	
+
+# ==== UART1 ====
+#NET "led1"	LOC = "V16"	| IOSTANDARD = "LVCMOS33";
+#pines para la conexión del modulo esp8266
+#NET "uart_txd1"	LOC = "K1"	| IOSTANDARD = "LVCMOS33";	
+#NET "uart_rxd1"	LOC = "J1"	| IOSTANDARD = "LVCMOS33";	
+#pin para la salida del calble usb
+#NET "uart_rxd1_1"	LOC = "N18"	| IOSTANDARD = "LVCMOS33";	
+
+# ==== SPI ====
+#NET "spi_miso"	LOC = "N10"	| IOSTANDARD = "LVCMOS33";	
+#NET "spi_mosi"	LOC = "P11"	| IOSTANDARD = "LVCMOS33";	
+#NET "spi_clk"	LOC = "M10"	| IOSTANDARD = "LVCMOS33";
+
+# ==== I2C ====
+#NET "i2c_sda"	LOC = "N9"	| IOSTANDARD = "LVCMOS33";
+#NET "i2c_scl"	LOC = "U11"	| IOSTANDARD = "LVCMOS33";
+
+
+#############################
+########## NEXYS 4 ##########
+#############################
+
+# ==== Cloclk inputs (CLK) ====
+
+#NET "clk"   LOC = "E3"	| IOSTANDARD = "LVCMOS33";
+#NET "clk" TNM_NET = sys_clk;
+#TIMESPEC TS_sys_clk = PERIOD sys_clk_pin 100 MHz HIGH 50%; 
+
+#NET "rst"	LOC = "C12"	| IOSTANDARD = "LVCMOS33";
+
+# ==== UART ====
+#NET "led"	LOC = "P2"	| IOSTANDARD = "LVCMOS33";
+#NET "uart_txd"	LOC = "B13"	| IOSTANDARD = "LVCMOS33";	
+#NET "uart_rxd"	LOC = "F14"	| IOSTANDARD = "LVCMOS33";	
+
+# ==== UART1 ====
+#NET "led1"	LOC = "R2"	| IOSTANDARD = "LVCMOS33";
+#pines para la conexión del modulo esp8266
+#NET "uart_txd1"	LOC = "E7"	| IOSTANDARD = "LVCMOS33";	
+#NET "uart_rxd1"	LOC = "E6"	| IOSTANDARD = "LVCMOS33";	
+#pin para la salida del calble usb
+#NET "uart_rxd1_1"	LOC = "D4"	| IOSTANDARD = "LVCMOS33";	
+
+# ==== SPI ====
+#NET "spi_miso"	LOC = "D17"	| IOSTANDARD = "LVCMOS33";	
+#NET "spi_mosi"	LOC = "E17"	| IOSTANDARD = "LVCMOS33";	
+#NET "spi_clk"	LOC = "G13"	| IOSTANDARD = "LVCMOS33";
+
+# ==== I2C ====
+#NET "i2c_sda"	LOC = "K2"	| IOSTANDARD = "LVCMOS33";
+#NET "i2c_scl"	LOC = "E7"	| IOSTANDARD = "LVCMOS33";
